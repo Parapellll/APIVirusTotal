@@ -1,1 +1,2 @@
-# APIVirusTotal
+# APIVirusTotal  
+resource получаем из консоли!!
