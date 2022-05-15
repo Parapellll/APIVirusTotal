@@ -24,7 +24,7 @@ def log(message, answer):
     print('\n')
 
 
-# Обработка на стикеры. смайлы шо из первого скрина я убрал потому что постиронию никто не поймёт
+
 @bot.message_handler(content_types='stickers')
 def handle_command_stickers(message):
     answer = "@Ответить пользователю"
@@ -32,7 +32,7 @@ def handle_command_stickers(message):
     log(message, answer)
 
 
-# Настоящая работа с файлом.
+
 @bot.message_handler(content_types=['document'])
 def handle_document(message):
     # Обрабатываем и забираем файл.
@@ -91,7 +91,7 @@ def handle_document(message):
             response = requests.post('https://www.virustotal.com/vtapi/v2/file/report', params=params, headers=headers)
             count += 1
     print(response.json())
-    # конечный результат ура бля
+    # конечный результат 
     if (response.json().get('positives') <= 1):
         bot.send_message(message.chat.id, "В данном файле нет вирусов!!!")
     else:
@@ -99,7 +99,7 @@ def handle_document(message):
     log(message, answer)
 
 
-# Команда /settings в ручном наборе или из меню. смайлы шо из первого скрина я убрал потому что постиронию никто не поймёт
+
 @bot.message_handler(commands=['start'])
 def handle_command_start(message):
     answer = "@Отправил клавиатуру"
@@ -109,7 +109,7 @@ def handle_command_start(message):
     log(message, answer)
 
 
-# Команда /settings в ручном наборе или из меню. смайлы шо из первого скрина я убрал потому что постиронию никто не поймёт
+
 @bot.message_handler(commands=['help'])
 def handle_command_help(message):
     answer = "@Рассказал про бота"
@@ -117,14 +117,13 @@ def handle_command_help(message):
     log(message, answer)
 
 
-# Команда /settings в ручном наборе или из меню. смайлы шо из первого скрина я убрал потому что постиронию никто не поймёт
+
 @bot.message_handler(commands=['тыкни меня'])
 def handle_command_setting(message):
     bot.send_message(message.chat.id, "я не знаю почему он не работает я устал\n" +
                      "починись")
 
 
-# Обработка на текст. смайлы шо из первого скрина я убрал потому что постиронию никто не поймёт
 @bot.message_handler(content_types=['text'])
 def handle_command_text(message):
     answer = "@Ответить пользователю"
@@ -132,7 +131,7 @@ def handle_command_text(message):
     log(message, answer)
 
 
-# Вообще не работает(проверка на аудио) смайлы шо из первого скрина я убрал потому что постиронию никто не поймёт
+
 @bot.message_handler(content_types=['audio'])
 def handle_command_audio(message):
     answer = "@Ответить пользователю"
